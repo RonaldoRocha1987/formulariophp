@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2025 at 09:28 PM
+-- Generation Time: Dec 09, 2025 at 01:37 PM
 -- Server version: 8.0.41
 -- PHP Version: 8.2.12
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `usuarios` (
   `formulario_id` int NOT NULL,
   `nome` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
   `email` varchar(115) NOT NULL,
   `telefone` varchar(15) NOT NULL,
   `sexo` varchar(15) NOT NULL,
@@ -43,9 +44,9 @@ CREATE TABLE `usuarios` (
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`formulario_id`, `nome`, `email`, `telefone`, `sexo`, `data_nasc`, `cidade`, `estado`, `endereco`) VALUES
-(1, 'RONALDO LUIZ VIEIRA DA ROCHA', 'paulo@gmail.com', '21967018274', 'masculino', '2025-12-04', 'Rio de Janeiro', 'RJ', 'Casa, Casa'),
-(2, 'Tiago Francisco', 'tiago@gmail.com', '21967015841', 'masculino', '2000-01-04', 'Rio de Janeiro', 'RJ', 'Casa, Casa');
+INSERT INTO `usuarios` (`formulario_id`, `nome`, `senha`, `email`, `telefone`, `sexo`, `data_nasc`, `cidade`, `estado`, `endereco`) VALUES
+(1, 'RONALDO LUIZ VIEIRA DA ROCHA', '123', 'ronaldo@gmail.com', '21967018274', 'masculino', '2025-12-04', 'Rio de Janeiro', 'RJ', 'Casa, Casa'),
+(2, 'Tiago Francisco', '123', 'tiago@gmail.com', '21967015841', 'masculino', '2000-01-04', 'Rio de Janeiro', 'RJ', 'Casa, Casa');
 
 --
 -- Indexes for dumped tables

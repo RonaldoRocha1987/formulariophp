@@ -36,7 +36,7 @@
     <h1>Estudos</h1>
     <h2>sistema de login</h2>
     <div class="box">
-        <a href="classes/login.html">login</a>
+        <a href="classes/login.php">login</a>
         <a href="classes/formulario.php">Cadastro-se</a>
     </div>
 </body>

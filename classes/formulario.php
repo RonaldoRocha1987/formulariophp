@@ -17,9 +17,10 @@
         print_r("<br>");
         print_r("Endereco" . $_POST['endereco']);*/
 
-        include_once('config.php');
+        include_once('../config/config.php');
 
         $nome = $_POST['nome'];
+        $senha = $_POST['senha'];
         $email = $_POST['email'];
         $telefone = $_POST['telefone'];
         $sexo = $_POST['genero'];
@@ -28,9 +29,10 @@
         $estado = $_POST['estado'];
         $endereco = $_POST['endereco'];
 
-        $result = mysqli_query($conexao,"INSERT INTO usuarios(nome,email,telefone,sexo,data_nasc,cidade,estado,endereco)
-        values ('$nome','$email','$telefone','$sexo','$data_nasc','$cidade','$estado','$endereco')");
+        $result = mysqli_query($conexao,"INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,cidade,estado,endereco)
+        values ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$cidade','$estado','$endereco')");
 
+        header('Location: login.php');
     }
 ?>
 <!DOCTYPE html>

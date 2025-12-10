@@ -44,13 +44,13 @@
     <a href="../index.php">voltar</a>
    <div>
     <h1>Login</h1>
-    <form action="testeLogin.php" method="post">
-    <input type="text" nome="email" placeholder="email">
+ <form action="testeLogin.php" method="POST">
+    <input type="email" name="email" placeholder="email">
     <br><br>
     <input type="password"name="senha" placeholder="senha">
     <br><br>
     <input class="inputSubmit" type="submit" name="submit" value="Enviar">
-    </form>
+ </form>
 
    </div> 
 </body>
