@@ -1,11 +1,12 @@
 <?php
-    if(!empty($_GET['formulario_id']))
+    if(!empty($_GET['id']))
     {
        
 
         include_once('../config/config.php');
 
-        $id= $_GET['formulario_id'];
+
+        $id= $_GET['id'];
 
         $sqlSelect = "SELECT * FROM usuarios WHERE formulario_id=$id";
 
@@ -19,19 +20,23 @@
                 $senha = $user_data['senha'];
                 $email = $user_data['email'];
                 $telefone = $user_data['telefone'];
-                $sexo = $user_data['genero'];
-                $data_nasc = $user_data['data_nascimento'];
+                $sexo = $user_data['sexo'];
+                $data_nasc = $user_data['data_nasc'];
                 $cidade = $user_data['cidade'];
                 $estado = $user_data['estado'];
                 $endereco = $user_data['endereco'];
             }
-            print_r($nome);
         }
         else
         {
             header('Location: sistema.php');
+            
         }
 
+    }
+    else
+    {
+        header('Location: sistema.php');
     }
 ?>
 <!DOCTYPE html>
@@ -102,7 +107,7 @@
             outline: none;
             font-size: 15px;
         }
-        #submit{
+        #update{
             background-image: linear-gradient(to right,rgb(0,92,197),rgb(90,20,220));
             width: 100%;
             border: none;
@@ -113,7 +118,7 @@
             border-radius: 10px;
 
         }
-        #submit:hover{
+        #update:hover{
             background-image: linear-gradient(to right,rgb(0,80,172),rgb(90,19,195));
         }
 
@@ -122,7 +127,7 @@
 <body>
     <a href="sistema.php">voltar</a>
     <div class="box">
-        <form action="formulario.php" method="post">
+        <form action="saveEdit.php" method="post">
             <fieldset>
                 <legend><b>Formulário de Cliente</b></legend>
                 <br>
@@ -146,11 +151,11 @@
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div> 
                 <p>Sexo</p>          
-                <input type="radio" id="feminino"name="genero" value="feminino" <?php $sexo == 'feminino' ? 'checked' : ''?> required>
+                <input type="radio" id="feminino" name="sexo" value="feminino" <?php echo $sexo == 'feminino' ? 'checked' : ''?> required>
                 <label for="feminino">Feminino</label><br>
-                <input type="radio" id="masculino" name="genero" value="masculino" <?php $sexo == 'masculino' ? 'checked' : ''?> required>
+                <input type="radio" id="masculino" name="sexo" value="masculino" <?php echo $sexo == 'masculino' ? 'checked' : ''?> required>
                 <label for="masculino">Masculino</label><br>
-                <input type="radio" id="outro" name="genero" value="outro" <?php $sexo == 'outro' ? 'checked' : ''?> required>
+                <input type="radio" id="outro" name="sexo" value="outro" <?php echo $sexo == 'outro' ? 'checked' : ''?> required>
                 <label for="outro">Outro</label>
                 <br><br>
                     <label for="data_nascimento"><b>Data de Nascimento</b>:</label>
@@ -170,8 +175,9 @@
                     <input type="text" name="endereco" id="endereco" class="inputUser" value="<?php echo $endereco ?>" required>
                     <label for="endereco" class="labelInput">Endereço</label>
                 </div>
+                <input type="hidden" name="id" value="<?php echo $id ?>">
                 <br>
-                <input type="submit" name="submit" id="submit">
+                <input type="submit" name="update" id="update">
             </fieldset>
         </form>
     </div>
